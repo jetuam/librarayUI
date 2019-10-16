@@ -1,0 +1,49 @@
+<!-- nav-bar -->
+<app-navbar></app-navbar>
+<!-- Container -->
+<div class="container">
+    <div class="col-md-6 margin-10">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Register</div>
+            <div class="panel-body">
+                <form class="example-form" [formGroup]="registerform">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="First Name *" formControlName="firstName" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="hasError('firstName', 'required')"> First Name is required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Last Name *" formControlName="lastName" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="hasError('lastName', 'required')"> Last Name is required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Email Id *" formControlName="emailId" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="hasError('emailId', 'email')">
+                            Please enter a valid email address
+                        </mat-error>
+                        <mat-error *ngIf="hasError('emailId', 'required')"> Email Id is required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="number" placeholder="Mobile Number *" formControlName="phoneNo"
+                            [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="hasError('phoneNo', 'required')"> Mobile Number is required</mat-error>
+                        <!-- <mat-error *ngIf="hasError('phoneNo', 'min')">Loan Amountt should be Max 10
+                        </mat-error> -->
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Password *" formControlName="password" [errorStateMatcher]="matcher"
+                            [type]="hide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="hasError('password', 'required')"> Password is required</mat-error>
+                    </mat-form-field>
+                    <div class="mt-5">
+                        <button mat-raised-button color="primary" [disabled]="registerform.invalid" (click)="onSubmit(registerform.value)">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<p-toast [style]="{marginTop: '80px'}"></p-toast>

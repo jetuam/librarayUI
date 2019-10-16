@@ -1,0 +1,39 @@
+<!-- nav-bar -->
+<app-navbar></app-navbar>
+<!-- Container -->
+<div class="container">
+    <div class="col-md-6 margin-10">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Book Details</div>
+            <div class="panel-body">
+                <form class="example-form" [formGroup]="addBookForm">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Book Name *" formControlName="bookName" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="hasError('bookName', 'required')"> Book Name is required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Author *" formControlName="bookAuthor" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="hasError('bookAuthor', 'required')"> Author is required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Description *" formControlName="description" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="hasError('description', 'required')"> Description is required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Publisher *" formControlName="bookPublisher" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="hasError('bookPublisher', 'required')"> Publisher is required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Category *" formControlName="bookCategory" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="hasError('bookCategory', 'required')"> Category is required</mat-error>
+                    </mat-form-field>
+                    <div class="mt-5">
+                        <button mat-raised-button color="primary" (click)="onSubmit(addBookForm.value)" [disabled]="addBookForm.invalid">Add
+                            Book</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<p-toast [style]="{marginTop: '80px'}"></p-toast>

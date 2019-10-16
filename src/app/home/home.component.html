@@ -1,0 +1,30 @@
+<!-- nav-bar -->
+<app-navbar></app-navbar>
+<!-- Container -->
+<div style="clear:both"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-9">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Book Name</th>
+                        <th>Borrowed Start Date</th>
+                        <th>Borrowed End Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let book of borrowedBookDetails">
+                        <td>{{book.bookName}}</td>
+                        <td>{{book.borrowedStartDate}}</td>
+                        <td>{{book.borrowedEndDate}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<!-- nav-bar -->
+<app-navbar></app-navbar>
+<!-- Container -->
+<div class="container">
+    <div class="col-md-6 margin-10">
+        <div class="alert alert-danger" *ngIf="error">
+            <strong>Error!</strong> User Id or Password invaild
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Login</div>
+            <div class="panel-body">
+                <form class="example-form" [formGroup]="userform">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="User Id*" formControlName="emailId" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="hasError('emailId', 'required')"> User Name is required</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Password*" formControlName="password" [errorStateMatcher]="matcher"
+                            [type]="hide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="hasError('password', 'required')"> Password is required</mat-error>
+                    </mat-form-field>
+                    <div class="mt-5">
+                        <button mat-raised-button color="primary" [disabled]="userform.invalid" (click)="onSubmit()">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

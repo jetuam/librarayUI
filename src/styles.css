@@ -1,0 +1,135 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css';
+
+/*material style start*/
+.mat-form-field{
+    display: block !important;
+  }
+  .mt-5{
+  text-align: right;
+  }
+  .title{
+    font-size: 28px;
+    color: #ff6200;
+    text-align: center;
+    position: relative;
+    left: 24%;
+    top: 17px;
+  }
+  /*material style end*/
+
+  /* navbar style start*/
+  .navbar-inverse{
+    background-color: #fff;
+    border-color: #fff;
+    box-shadow: 2px 1px 8px #888;
+    margin-bottom: 0px;
+    height: 80px;
+  }
+  .navbar-inverse img {
+    position: relative;   
+    width: 65%;
+    left: 22px;
+}
+.navbar-inverse .navbar-nav>li>a:hover{
+  color: #ff6200;
+}
+ul.nav.navbar-nav.navbar-right {
+  position: relative;
+  top: -20px;
+}
+.txt-menu li{
+  top:-10px;
+}
+  /* navbar style end*/
+
+  .margin-10{
+    margin: auto;
+    margin-top: 10%;
+    float: none;
+    }
+    .margin-5{
+      margin: auto;
+      margin-top: 5%;
+      float: none;
+      }
+    .margin-auto{
+      float: none;
+      margin: auto;
+    }
+
+    .panel-primary>.panel-heading{
+        font-weight: bold;
+        background-color: #ff6200;
+        border-color: #ff6200;
+      }
+      .panel{
+        border:1px solid #ff6200;  
+      }
+
+      .inner{
+        text-align: center;
+        border: 1px solid #ff6200;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .heading {
+        padding: 10px 0px 5px;
+        box-sizing: border-box;
+        font-weight: bold;
+        color: #ff6200;
+    }
+    .col-md-3 {
+      padding: 5px;
+  }
+  .banner_img img{
+width:100%;
+margin-bottom: 10px;
+  }
+
+@media only screen and (max-width: 670px) {   
+  #myLinks{
+      display: none;
+  }
+  .icon{
+      display: block;
+      background: #eee;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #888;
+  text-decoration: none;
+  color: #000;
+  text-align: center;
+  } 
+  .navbar-inverse .navbar-toggle{
+    background-color: #ff6200;
+    position: relative;
+  top: 13px;
+  }
+  .navbar-inverse{
+      margin-bottom: 0px;
+  }  
+  .navbar-inverse img {
+    width: 40%;
+    left: 10px;
+    top: 8px;
+  }  
+  .title{
+    left: 35%;
+    top: -28px;
+    font-size: 21px;
+  }
+  .panel-group{
+    margin-top: 5%;
+  }
+  ul.nav.navbar-nav.navbar-right {
+    background: #fff;
+    margin-bottom: 10px;
+    box-shadow: 1px 2px 2px #888;
+    z-index: 9999;
+}
+}
