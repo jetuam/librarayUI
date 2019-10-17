@@ -2,39 +2,39 @@
   "category": [
     {
       "id": 1,
-      "name": "What if",
-      "authur": "Randall Munroe",
-      "publisher": "Oxford",
-      "category": "Science",
+      "bookName": "What if",
+      "bookAuthor": "Randall Munroe",
+      "bookPublisher": "Oxford",
+      "bookCategory": "Science",
       "publish_Date": "12/09/1991",
-      "status": "Available"
+      "bookStatus": "Available"
     },
     {
       "id": 2,
-      "name": "The Serpents Revenge",
-      "authur": ": Sudha Murthy",
-      "publisher": "Jaico Publishing house",
-      "category": "Children",
+      "bookName": "The Serpents Revenge",
+      "bookAuthor": ": Sudha Murthy",
+      "bookPublisher": "Jaico Publishing house",
+      "bookCategory": "Children",
       "publish_Date": "12/09/1991",
-      "status": "Available"
+      "bookStatus": "Available"
     },
     {
       "id": 3,
-      "name": "Manku Thimmana kaga",
-      "authur": "D V Gundappa",
-      "publisher": "Westland publication",
-      "category": "Fantasy",
+      "bookName": "Manku Thimmana kaga",
+      "bookAuthor": "D V Gundappa",
+      "bookPublisher": "Westland publication",
+      "bookCategory": "Fantasy",
       "publish_Date": "12/09/1991",
-      "status": "Request"
+      "bookStatus": "Request"
     },
     {
       "id": 4,
-      "name": "The Adventures of Suppandi",
-      "authur": "D V Gundappa",
-      "publisher": "Westland publication",
-      "category": "Children",
+      "bookName": "The Adventures of Suppandi",
+      "bookAuthor": "D V Gundappa",
+      "bookPublisher": "Westland publication",
+      "bookCategory": "Children",
       "publish_Date": "12/09/1991",
-      "status": "Request"
+      "bookStatus": "Request"
     }
   ],
   "comments": [
@@ -45,6 +45,6 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "bookName": "typicode"
   }
 }

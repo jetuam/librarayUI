@@ -128,7 +128,7 @@ label.title1 {
     margin-bottom: 15px;
 }
 
-.col-sm-3 {
+.col-sm-3,.col-md-3.ng-star-inserted {
     padding: 5px;
 }
 
@@ -200,5 +200,8 @@ input#search {
     .navbar-nav {
         margin: -1.0px -16px;
         background: #fff;
+    }
+    .col-sm-3, .col-md-3.ng-star-inserted {
+        padding: 5px 15px;
     }
 }

@@ -11,23 +11,31 @@ export class CommonService {
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * 
+   * @param regValue (Post method for Register)
+   */
   postRegister(regValue) {
     return this.http.post(this.globalURL + '/register', regValue);
   }
-
+  /**
+   * 
+   * @param loginValue (post method for login)
+   */
   postLogin(loginValue) {
     return this.http.post(this.globalURL + '/login', loginValue);
   }
-
+  /**
+   * 
+   * @param bookValue (post method for addBook)
+   */
   postAddBook(bookValue) {
     return this.http.post(this.globalURL + '/books/add', bookValue);
   }
 
-  getCategoryList() {
-    // return this.http.get(this.globalURL + '/categorys');
-    return this.http.get('http://localhost:3000/category');
-  }
-
+  /**
+   * get method for Borrow list
+   */
   getBorrowList() {
     return this.http.get(this.globalURL + '/books/borrow');
   }

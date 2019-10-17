@@ -13,6 +13,7 @@ import { MessageModule } from 'primeng/message';
 import { PanelModule } from 'primeng/panel';
 import { DataViewModule } from 'primeng/dataview';
 import { PaginatorModule } from 'primeng/paginator';
+import { ToggleButtonModule } from 'primeng/togglebutton';
 
 @NgModule({
   declarations: [],
@@ -20,6 +21,6 @@ import { PaginatorModule } from 'primeng/paginator';
     CommonModule
   ],
   exports: [TableModule, ButtonModule, DialogModule, InputTextModule, DropdownModule,
-    ConfirmDialogModule, ToastModule, RatingModule, MessageModule, PanelModule, DataViewModule, PaginatorModule]
+    ConfirmDialogModule, ToastModule, RatingModule, ToggleButtonModule, MessageModule, PanelModule, DataViewModule, PaginatorModule]
 })
 export class PrimengModule { }

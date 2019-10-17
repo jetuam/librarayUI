@@ -15,26 +15,33 @@
     <div class="row">
         <div class="col-md-3" *ngFor="let cate of category |filter:term">
             <div class="inner">
-                <div class="heading">{{cate.name}}</div>
+                <div class="heading">{{cate.bookName}}</div>
                 <div class="image">
-                    <img src="../../assets/images/1570881770.jpg" width="73px;" height="114px;">
+                    <img src="assets/images/1570881770.jpg" width="73px;" height="114px;">
                 </div>
                 <div class="authur">
-                    <label>Author : </label> {{cate.authur}}
+                    <label>Author : </label> {{cate.bookAuthor}}
                 </div>
                 <div class="Publisher">
-                    <label>Publisher : </label> {{cate.publisher}}
+                    <label>Publisher : </label> {{cate.bookPublisher}}
                 </div>
                 <div class="category">
-                    <label>Category: </label> {{cate.category}}
+                    <label>Category: </label> {{cate.bookCategory}}
                 </div>
-                <div class="publish_Date">
-                    <label> Publish Date : </label> {{cate.publish_Date}}
-                </div>
-                <p-button label="{{cate.status}}"></p-button>
+                <p-button label="{{cate.bookStatus}}" (click)="onRequest(cate)"></p-button>
+                <!-- <p-toggleButton onIcon="pi pi-check" offIcon="pi pi-times"
+                    [(ngModel)]="cate.bookStatus"></p-toggleButton> -->
             </div>
         </div>
     </div>
     <br>
     <!-- <p-paginator [rows]="10" totalRecords="100" (onPageChange)="paginate($event)"></p-paginator> -->
 </div>
+
+<p-dialog header="Request" [(visible)]="display">
+    <div *ngIf="endDate">
+        This book will be Available After <strong>{{endDate.endDate}}</strong>
+    </div>
+</p-dialog>
+
+<p-toast [style]="{marginTop: '80px'}" position="top-center"></p-toast>

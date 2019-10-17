@@ -65,17 +65,17 @@ export class AddBookComponent implements OnInit {
   }
 
   onSubmit(value) {
-    value['bookStatus'] = 'available';
-    value['userId'] = this.userid;
+    value['bookStatus'] = 'AVAILABLE';
+    // value['userId'] = this.userid;
     console.log(value);
     this.service.postAddBook(value).subscribe(res => {
       this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Book added Successfully ' });
     }, (err => {
-      if (status === '302') {
+      if (err.status == 302) {
         this.messageService.add({ severity: 'warn', summary: ' ', detail: 'Book Already Exists' });
       }
       else {
-        this.messageService.add({ severity: 'error', summary: ' ', detail: 'Please check internet connection' });
+        this.messageService.add({ severity: 'error', summary: ' ', detail: 'Please check the API connection' });
       }
     }));
     this.addBookForm.reset();

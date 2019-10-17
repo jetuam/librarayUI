@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../service/common.service';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ export class HomeComponent implements OnInit {
   firstName;
   lastName;
   borrowedBookDetails = [];
+  globalURL = environment.devPath;
 
   constructor(private service: CommonService, private http: HttpClient) { }
 
@@ -22,10 +24,9 @@ export class HomeComponent implements OnInit {
       this.firstName = JSON.parse(localUser).firstName;
       this.lastName = JSON.parse(localUser).lastName;
     }
-    this.http.get('http://15.206.67.198:8082/bookmanagmentapp/books/' + this.userId).subscribe(res => {
-      let r: any = res;
-      this.borrowedBookDetails = r.borrowedBookDetails;
-      console.log(res);
+    this.http.get(this.globalURL + '/books/' + this.userId).subscribe(res => {
+      let book: any = res;
+      this.borrowedBookDetails = book.borrowedBookDetails;
     })
   }
 
