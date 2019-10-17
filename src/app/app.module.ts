@@ -6,10 +6,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /*Angular Material */
-import { MatInputModule, MatIconModule, MatButtonModule, MatDialogModule } from '@angular/material';
-
+import { MatInputModule, MatIconModule, MatButtonModule, MatDialogModule, MatSelectModule } from '@angular/material';
 /*Prime NG Module*/
 import { PrimengModule } from './core/primeng/primeng.module';
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,8 +38,9 @@ import { CategoryComponent } from './category/category.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     PrimengModule,
-    MatInputModule, MatIconModule, MatButtonModule, MatDialogModule,
-    FormsModule, ReactiveFormsModule, HttpClientModule
+    MatInputModule, MatIconModule, MatButtonModule, MatDialogModule, MatSelectModule,
+    FormsModule, ReactiveFormsModule, HttpClientModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

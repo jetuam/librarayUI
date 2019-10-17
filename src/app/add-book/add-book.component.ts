@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl, FormGroup, FormBuilder, NgForm, FormGroupDirective } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { CommonService } from '../service/common.service';
-import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -10,6 +9,11 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
+}
+
+export interface Category {
+  value: string;
+  viewValue: string;
 }
 
 @Component({
@@ -23,6 +27,20 @@ export class AddBookComponent implements OnInit {
   addBookForm: FormGroup;
   userid;
 
+  categorylists: Category[] = [
+    { value: 'biographies', viewValue: 'Biographies' },
+    { value: 'science', viewValue: 'Science' },
+    { value: 'recipes', viewValue: 'Recipes' },
+    { value: 'religion', viewValue: 'Religion' },
+    { value: 'art', viewValue: 'Art' },
+    { value: 'detective', viewValue: 'Detective' },
+    { value: 'music', viewValue: 'Music' },
+    { value: 'medicine', viewValue: 'Medicine' },
+    { value: 'plays', viewValue: 'Plays' },
+    { value: 'history', viewValue: 'History' },
+    { value: 'children', viewValue: 'Children' },
+  ];
+
   constructor(private service: CommonService, private messageService: MessageService) { }
 
   ngOnInit() {
@@ -34,8 +52,8 @@ export class AddBookComponent implements OnInit {
       bookCategory: new FormControl('', [Validators.required]),
     });
 
-    if (localStorage.getItem("UserDetails") != null) {
-      let localUser = localStorage.getItem("UserDetails");
+    if (localStorage.getItem('UserDetails') != null) {
+      const localUser = localStorage.getItem('UserDetails');
       this.userid = JSON.parse(localUser).userId;
       console.log(this.userid);
     }
@@ -53,8 +71,13 @@ export class AddBookComponent implements OnInit {
     this.service.postAddBook(value).subscribe(res => {
       this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Book added Successfully ' });
     }, (err => {
-      this.messageService.add({ severity: 'error', summary: 'Error ', detail: 'Book Already Exists' });
-    }))
+      if (status === '302') {
+        this.messageService.add({ severity: 'warn', summary: ' ', detail: 'Book Already Exists' });
+      }
+      else {
+        this.messageService.add({ severity: 'error', summary: ' ', detail: 'Please check internet connection' });
+      }
+    }));
     this.addBookForm.reset();
   }
 

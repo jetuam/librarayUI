@@ -24,7 +24,13 @@
                         <mat-error *ngIf="hasError('bookPublisher', 'required')"> Publisher is required</mat-error>
                     </mat-form-field>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Category *" formControlName="bookCategory" [errorStateMatcher]="matcher">
+                        <mat-label>Category *</mat-label>
+                        <mat-select formControlName="bookCategory" [errorStateMatcher]="matcher">
+                            <mat-option *ngFor="let categorylist of categorylists" [value]="categorylist.value">
+                                {{categorylist.viewValue}}
+                            </mat-option>
+                        </mat-select>
+
                         <mat-error *ngIf="hasError('bookCategory', 'required')"> Category is required</mat-error>
                     </mat-form-field>
                     <div class="mt-5">
@@ -36,4 +42,4 @@
         </div>
     </div>
 </div>
-<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<p-toast [style]="{marginTop: '80px'}" position="top-center"></p-toast>

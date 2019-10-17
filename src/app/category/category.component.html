@@ -2,136 +2,39 @@
 <app-navbar></app-navbar>
 <!-- Container -->
 <div style="clear:both;"></div>
-<div class="banner_img">
-    <img src="../../assets/images/banner.jpg">
-</div>
+<app-carosual></app-carosual>
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
-            <div class="inner">
-                <div class="image">
-                    <img src="../../assets/images/1570881770.jpg" width="73px;" height="114px;">
-                </div>
-                <div class="heading">book</div>
-                <div class="authur">
-                    <label>Author : </label> Gopi
-                </div>
-                <div class="Publisher">
-                    <label>Publisher : </label> Gopi dddd fdfdf
-                </div>
-                <div class="category">
-                    <label>Category: </label> history
-                </div>
-                <div class="publish_Date">
-                    <label> Publish Date : </label> 12/09/1991
-                </div>
-                <p-button label="Available"></p-button>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="inner">
-                <div class="image">
-                    <img src="../../assets/images/1570881770.jpg" width="73px;" height="114px;">
-                </div>
-                <div class="heading">book</div>
-                <div class="authur">
-                    <label>Author : </label> Gopi
-                </div>
-                <div class="Publisher">
-                    <label>Publisher : </label> Gopi dddd fdfdf
-                </div>
-                <div class="category">
-                    <label>Category: </label> history
-                </div>
-                <div class="publish_Date">
-                    <label> Publish Date : </label> 12/09/1991
-                </div>
-                <p-button label="Request"></p-button>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="inner">
-                <div class="image">
-                    <img src="../../assets/images/1570881770.jpg" width="73px;" height="114px;">
-                </div>
-                <div class="heading">book</div>
-                <div class="authur">
-                    <label>Author : </label> Gopi
-                </div>
-                <div class="Publisher">
-                    <label>Publisher : </label> Gopi dddd fdfdf
-                </div>
-                <div class="category">
-                    <label>Category: </label> history
-                </div>
-                <div class="publish_Date">
-                    <label> Publish Date : </label> 12/09/1991
-                </div>
-                <p-button label="Available"></p-button>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="inner">
-                <div class="image">
-                    <img src="../../assets/images/1570881770.jpg" width="73px;" height="114px;">
-                </div>
-                <div class="heading">book</div>
-                <div class="authur">
-                    <label>Author : </label> Gopi
-                </div>
-                <div class="Publisher">
-                    <label>Publisher : </label> Gopi dddd fdfdf
-                </div>
-                <div class="category">
-                    <label>Category: </label> history
-                </div>
-                <div class="publish_Date">
-                    <label> Publish Date : </label> 12/09/1991
-                </div>
-                <p-button label="Available"></p-button>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="inner">
-                <div class="image">
-                    <img src="../../assets/images/1570881770.jpg" width="73px;" height="114px;">
-                </div>
-                <div class="heading">book</div>
-                <div class="authur">
-                    <label>Author : </label> Gopi
-                </div>
-                <div class="Publisher">
-                    <label>Publisher : </label> Gopi dddd fdfdf
-                </div>
-                <div class="category">
-                    <label>Category: </label> history
-                </div>
-                <div class="publish_Date">
-                    <label> Publish Date : </label> 12/09/1991
-                </div>
-                <p-button label="Available"></p-button>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="inner">
-                <div class="image">
-                    <img src="../../assets/images/1570881770.jpg" width="73px;" height="114px;">
-                </div>
-                <div class="heading">book</div>
-                <div class="authur">
-                    <label>Author : </label> Gopi
-                </div>
-                <div class="Publisher">
-                    <label>Publisher : </label> Gopi dddd fdfdf
-                </div>
-                <div class="category">
-                    <label>Category: </label> history
-                </div>
-                <div class="publish_Date">
-                    <label> Publish Date : </label> 12/09/1991
-                </div>
-                <p-button label="Request"></p-button>
+        <div class="col-md-6 m-10">
+            <div class="form-group">
+                <label class="title1">Search: </label>
+                <input type="text" class="form-control" id="search" placeholder="Search" name="search" [(ngModel)]="term">
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-3" *ngFor="let cate of category |filter:term">
+            <div class="inner">
+                <div class="heading">{{cate.name}}</div>
+                <div class="image">
+                    <img src="../../assets/images/1570881770.jpg" width="73px;" height="114px;">
+                </div>
+                <div class="authur">
+                    <label>Author : </label> {{cate.authur}}
+                </div>
+                <div class="Publisher">
+                    <label>Publisher : </label> {{cate.publisher}}
+                </div>
+                <div class="category">
+                    <label>Category: </label> {{cate.category}}
+                </div>
+                <div class="publish_Date">
+                    <label> Publish Date : </label> {{cate.publish_Date}}
+                </div>
+                <p-button label="{{cate.status}}"></p-button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!-- <p-paginator [rows]="10" totalRecords="100" (onPageChange)="paginate($event)"></p-paginator> -->
 </div>

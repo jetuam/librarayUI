@@ -1,0 +1,50 @@
+{
+  "category": [
+    {
+      "id": 1,
+      "name": "What if",
+      "authur": "Randall Munroe",
+      "publisher": "Oxford",
+      "category": "Science",
+      "publish_Date": "12/09/1991",
+      "status": "Available"
+    },
+    {
+      "id": 2,
+      "name": "The Serpents Revenge",
+      "authur": ": Sudha Murthy",
+      "publisher": "Jaico Publishing house",
+      "category": "Children",
+      "publish_Date": "12/09/1991",
+      "status": "Available"
+    },
+    {
+      "id": 3,
+      "name": "Manku Thimmana kaga",
+      "authur": "D V Gundappa",
+      "publisher": "Westland publication",
+      "category": "Fantasy",
+      "publish_Date": "12/09/1991",
+      "status": "Request"
+    },
+    {
+      "id": 4,
+      "name": "The Adventures of Suppandi",
+      "authur": "D V Gundappa",
+      "publisher": "Westland publication",
+      "category": "Children",
+      "publish_Date": "12/09/1991",
+      "status": "Request"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -42,8 +42,13 @@ export class RegisterComponent implements OnInit {
     this.service.postRegister(value).subscribe(res => {
       this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Register Successfully ' });
     }, (err => {
-      this.messageService.add({ severity: 'error', summary: 'Error ', detail: 'Register Already Exists' });
-    }))
+      if (status === '400') {
+        this.messageService.add({ severity: 'warn', summary: ' ', detail: 'Register Already Exists' });
+      }
+      else {
+        this.messageService.add({ severity: 'error', summary: ' ', detail: 'Please check internet connection' });
+      }
+    }));
     this.registerform.reset();
   }
 }

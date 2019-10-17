@@ -36,13 +36,10 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     this.service.postLogin(this.userform.value).subscribe(res => {
-      console.log(res);
-      // sessionStorage.setItem("User Details", JSON.stringify(res));
-      localStorage.setItem("UserDetails", JSON.stringify(res));
+      localStorage.setItem('UserDetails', JSON.stringify(res));
       this.router.navigate(['/home']);
     }, (err => {
       this.error = true;
-      console.log(err)
     }));
   }
 

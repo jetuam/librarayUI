@@ -1,5 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { NavbarComponent } from '../core/navbar/navbar.component';
+import { MatInputModule, MatIconModule, MatButtonModule, MatDialogModule, MatSelectModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { RegisterComponent } from './register.component';
 
 describe('RegisterComponent', () => {
@@ -8,9 +12,10 @@ describe('RegisterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RegisterComponent ]
+      declarations: [RegisterComponent, NavbarComponent],
+      imports: [FormsModule, ReactiveFormsModule, MatInputModule, MatIconModule, MatButtonModule, MatDialogModule, MatSelectModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

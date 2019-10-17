@@ -12,6 +12,7 @@ import { RatingModule } from 'primeng/rating';
 import { MessageModule } from 'primeng/message';
 import { PanelModule } from 'primeng/panel';
 import { DataViewModule } from 'primeng/dataview';
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
   declarations: [],
@@ -19,6 +20,6 @@ import { DataViewModule } from 'primeng/dataview';
     CommonModule
   ],
   exports: [TableModule, ButtonModule, DialogModule, InputTextModule, DropdownModule,
-    ConfirmDialogModule, ToastModule, RatingModule, MessageModule, PanelModule, DataViewModule]
+    ConfirmDialogModule, ToastModule, RatingModule, MessageModule, PanelModule, DataViewModule, PaginatorModule]
 })
 export class PrimengModule { }
