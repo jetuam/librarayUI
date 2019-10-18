@@ -10,6 +10,8 @@ export class NavbarComponent implements OnInit {
   userid;
   showlogout = false;
   showsignin = true;
+  firstName;
+  lastName;
 
   constructor(private router: Router) { }
 
@@ -31,6 +33,8 @@ export class NavbarComponent implements OnInit {
     if (localStorage.getItem('UserDetails') != null) {
       let localUser = localStorage.getItem('UserDetails');
       this.userid = JSON.parse(localUser).userId;
+      this.firstName = JSON.parse(localUser).firstName;
+      this.lastName = JSON.parse(localUser).lastName;
       this.showlogout = true;
       this.showsignin = false;
     }

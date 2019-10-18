@@ -6,6 +6,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { MatInputModule, MatIconModule, MatButtonModule, MatDialogModule, MatSelectModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -15,7 +17,7 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       declarations: [LoginComponent, NavbarComponent],
       imports: [FormsModule, ReactiveFormsModule, MatInputModule, MatIconModule, MatButtonModule,
-        MatDialogModule, MatSelectModule, RouterTestingModule]
+        MatDialogModule, MatSelectModule, RouterTestingModule, HttpClientModule, BrowserAnimationsModule]
     })
       .compileComponents();
   }));

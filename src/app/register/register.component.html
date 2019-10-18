@@ -23,10 +23,11 @@
                         <mat-error *ngIf="hasError('emailId', 'required')"> Email Id is required</mat-error>
                     </mat-form-field>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" placeholder="Mobile Number *" formControlName="phoneNo"
+                        <input matInput type="text" placeholder="Mobile Number *" maxlength="10" formControlName="phoneNo"
                             [errorStateMatcher]="matcher">
                         <mat-error *ngIf="hasError('phoneNo', 'required')"> Mobile Number is required</mat-error>
-                        <!-- <mat-error *ngIf="hasError('phoneNo', 'min')">Loan Amountt should be Max 10
+                        <mat-error *ngIf="hasError('phoneNo', 'pattern')"> Please Enter the number only</mat-error>
+                        <!-- <mat-error *ngIf="hasError('phoneNo', 'max')">Mobile Number should be 10 digits
                         </mat-error> -->
                     </mat-form-field>
                     <mat-form-field class="example-full-width">

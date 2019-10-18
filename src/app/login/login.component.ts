@@ -3,6 +3,7 @@ import { Validators, FormControl, FormGroup, FormBuilder, NgForm, FormGroupDirec
 import { ErrorStateMatcher } from '@angular/material/core';
 import { CommonService } from '../service/common.service';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -14,15 +15,15 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [MessageService]
 })
 export class LoginComponent implements OnInit {
-  error = false;
   hide = true;
   userform: FormGroup;
   matcher = new MyErrorStateMatcher();
 
-  constructor(private router: Router, private service: CommonService) {
+  constructor(private router: Router, private service: CommonService, private messageService: MessageService) {
   }
 
   ngOnInit() {
@@ -39,7 +40,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('UserDetails', JSON.stringify(res));
       this.router.navigate(['/home']);
     }, (err => {
-      this.error = true;
+      this.messageService.add({ severity: 'error', summary: ' ', detail: err.error.message });
     }));
   }
 

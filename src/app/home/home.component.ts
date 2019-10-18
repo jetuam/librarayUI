@@ -10,8 +10,6 @@ import { environment } from '../../environments/environment';
 })
 export class HomeComponent implements OnInit {
   userId;
-  firstName;
-  lastName;
   borrowedBookDetails = [];
   globalURL = environment.devPath;
 
@@ -21,8 +19,6 @@ export class HomeComponent implements OnInit {
     if (localStorage.getItem('UserDetails') != null) {
       const localUser = localStorage.getItem('UserDetails');
       this.userId = JSON.parse(localUser).userId;
-      this.firstName = JSON.parse(localUser).firstName;
-      this.lastName = JSON.parse(localUser).lastName;
     }
     this.http.get(this.globalURL + '/books/' + this.userId).subscribe(res => {
       let book: any = res;

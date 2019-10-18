@@ -2,14 +2,15 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" (click)="navMenu()">
+                <button type="button" class="navbar-toggle" aria-label="button" data-toggle="collapse" data-target="#myNavbar"
+                    (click)="navMenu()">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" routerLink="/"><img src="assets/images/logo.png" alt="logo"></a>
+                <a class="navbar-brand" routerLink="/"><img src="../../../assets/images/logo.png" alt="logo"></a>
+                <strong class="title">Online Library</strong>
             </div>
-            <strong class="title">Online Library</strong>
             <div id="myLinks">
                 <div *ngIf="showlogout">
                     <ul class="nav navbar-nav txt-menu">
@@ -18,6 +19,7 @@
                         <li routerLinkActive="active"><a routerLink="/addBook">Add Book</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a><span class="glyphicon glyphicon-user"></span> &nbsp;{{firstName}} {{lastName}}</a></li>
                         <li><a routerLink="/login" (click)="logOut()"><span class="glyphicon glyphicon-log-out"></span>
                                 logout</a></li>
                     </ul>
@@ -27,7 +29,6 @@
                     <li><a routerLink="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
-
             </div>
         </div>
     </nav>

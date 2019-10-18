@@ -3,9 +3,6 @@
 <!-- Container -->
 <div class="container">
     <div class="col-md-6 margin-10">
-        <div class="alert alert-danger" *ngIf="error">
-            <strong>Error!</strong> User Id or Password invaild
-        </div>
         <div class="panel panel-primary">
             <div class="panel-heading">Login</div>
             <div class="panel-body">
@@ -32,3 +29,4 @@
         </div>
     </div>
 </div>
+<p-toast [style]="{marginTop: '80px'}" position="top-center"></p-toast>

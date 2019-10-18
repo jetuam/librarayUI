@@ -20,14 +20,6 @@ body {
     text-align: right;
 }
 
-.title {
-    font-size: 28px;
-    color: #ff6200;
-    text-align: center;
-    position: relative;
-    left: 24%;
-    top: 17px;
-}
 
 
 /*material style end*/
@@ -35,6 +27,16 @@ body {
 
 /* navbar style start*/
 
+div#myLinks {
+    position: relative;
+    top: 40px;
+}
+.navbar-header .title {
+    font-size: 21px;
+    color: #ff6200;
+    position: relative;
+    top: 29px;
+}
 .navbar-inverse {
     background-color: #fff;
     border-color: #fff;
@@ -47,10 +49,18 @@ body {
     position: relative;
     width: 65%;
     left: 22px;
+    top: -10px;
 }
-
+.navbar-header a {
+    margin: 0px;
+    padding-right: 0px;
+}
 .navbar-inverse .navbar-nav>li>a:hover {
     color: #ff6200;
+}
+ul.nav.navbar-nav.txt-menu {
+    position: relative;
+    left: 60px;
 }
 
 ul.nav.navbar-nav.navbar-right {
@@ -155,6 +165,12 @@ input#search {
     text-align: center;
     margin-top: 10px;
 }
+.inner span{
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
 
 @media only screen and (max-width: 670px) {
     #myLinks {
@@ -177,15 +193,8 @@ input#search {
     }
     .navbar-inverse {
         margin-bottom: 0px;
-    }
-    .navbar-inverse img {
-        width: 40%;
-        left: 10px;
-        top: 8px;
-    }
-    .title {
-        left: 35%;
-        top: -28px;
+    }  
+    .navbar-header .title {       
         font-size: 21px;
     }
     .panel-group {
@@ -197,11 +206,20 @@ input#search {
         box-shadow: 1px 2px 2px #888;
         z-index: 9999;
     }
+    .navbar-inverse img{
+        left: 5px;
+    }
     .navbar-nav {
         margin: -1.0px -16px;
         background: #fff;
     }
     .col-sm-3, .col-md-3.ng-star-inserted {
         padding: 5px 15px;
+    }
+    ul.nav.navbar-nav.txt-menu{
+        left: 0px;
+    }
+    .col-md-9 {
+        margin-top: 20px;
     }
 }

@@ -19,9 +19,9 @@ export class CategoryComponent implements OnInit {
   category = [];
   userId
   globalURL = environment.devPath;
-  display: boolean = false;
   endDate;
   status;
+  msg;
 
   constructor(private service: CommonService, private http: HttpClient, private messageService: MessageService) { }
 
@@ -32,8 +32,6 @@ export class CategoryComponent implements OnInit {
     if (localStorage.getItem('UserDetails') != null) {
       const localUser = localStorage.getItem('UserDetails');
       this.userId = JSON.parse(localUser).userId;
-      console.log(this.userId);
-
     }
 
     this.http.get(this.globalURL + '/books/users/' + this.userId).subscribe(res => {
@@ -48,16 +46,15 @@ export class CategoryComponent implements OnInit {
     if (val.bookStatus != 'AVAILABLE') {
       this.http.get(this.globalURL + '/books/availability/' + val.bookId).subscribe(res => {
         this.endDate = res;
-        this.display = true;
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Book is Not AVailable' });
+        this.messageService.add({ severity: 'warn', summary: '', detail: this.endDate.message });
       })
     }
     else {
       this.http.post(this.globalURL + '/books/borrow/', val).subscribe(res => {
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Book added Successfully ' });
+        this.msg = res;
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: this.msg.message });
       });
     }
-
   }
 
 }

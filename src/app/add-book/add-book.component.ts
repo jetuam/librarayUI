@@ -26,6 +26,7 @@ export class AddBookComponent implements OnInit {
 
   addBookForm: FormGroup;
   userid;
+  msg;
 
   categorylists: Category[] = [
     { value: 'biographies', viewValue: 'Biographies' },
@@ -55,24 +56,28 @@ export class AddBookComponent implements OnInit {
     if (localStorage.getItem('UserDetails') != null) {
       const localUser = localStorage.getItem('UserDetails');
       this.userid = JSON.parse(localUser).userId;
-      console.log(this.userid);
     }
   }
 
-  /* field is vaild  */
+  /**
+   * It used to check wheater the form is fields are empty 
+   * @returns true or false
+   */
   public hasError = (controlName: string, errorName: string) => {
     return this.addBookForm.controls[controlName].hasError(errorName);
   }
 
-  onSubmit(value) {
+  /**
+   * onSumbit is used to add books
+   * @param {object} value 
+   */
+  onSubmit(value: object) {
     value['bookStatus'] = 'AVAILABLE';
-    // value['userId'] = this.userid;
-    console.log(value);
     this.service.postAddBook(value).subscribe(res => {
-      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Book added Successfully ' });
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: res['message'] });
     }, (err => {
-      if (err.status == 302) {
-        this.messageService.add({ severity: 'warn', summary: ' ', detail: 'Book Already Exists' });
+      if (err.error.statusCode == 302) {
+        this.messageService.add({ severity: 'warn', summary: ' ', detail: err.error.message });
       }
       else {
         this.messageService.add({ severity: 'error', summary: ' ', detail: 'Please check the API connection' });

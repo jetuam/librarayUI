@@ -5,6 +5,8 @@ import { NavbarComponent } from '../core/navbar/navbar.component';
 import { MatInputModule, MatIconModule, MatButtonModule, MatDialogModule, MatSelectModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { RegisterComponent } from './register.component';
 
@@ -16,7 +18,7 @@ describe('RegisterComponent', () => {
     TestBed.configureTestingModule({
       declarations: [RegisterComponent, NavbarComponent],
       imports: [FormsModule, ReactiveFormsModule, MatInputModule, MatIconModule, MatButtonModule,
-        MatDialogModule, MatSelectModule, RouterTestingModule, ToastModule]
+        MatDialogModule, MatSelectModule, BrowserAnimationsModule, RouterTestingModule, ToastModule, HttpClientModule]
     })
       .compileComponents();
   }));

@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
     this.registerform = new FormGroup({
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
-      phoneNo: new FormControl('', [Validators.required]),
+      phoneNo: new FormControl('', [Validators.required, Validators.pattern('[0-9]*')]),
       emailId: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
     });
@@ -40,10 +40,10 @@ export class RegisterComponent implements OnInit {
   onSubmit(value) {
     console.log(value);
     this.service.postRegister(value).subscribe(res => {
-      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Register Successfully ' });
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: res['message'] });
     }, (err => {
-      if (err.status === 400) {
-        this.messageService.add({ severity: 'warn', summary: ' ', detail: 'Register Already Exists' });
+      if (err.status === 404) {
+        this.messageService.add({ severity: 'warn', summary: ' ', detail: err.error.message });
       }
       else {
         this.messageService.add({ severity: 'error', summary: ' ', detail: 'Please check the API connection' });
